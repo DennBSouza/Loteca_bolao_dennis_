@@ -1,3 +1,8 @@
+Com base na imagem que você enviou, extraí os 14 confrontos e atualizei o código do seu site (substituindo a matriz `fallback`).
+
+Aqui está o código HTML completo com os novos times já inseridos:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -20,7 +25,22 @@
 <aside class="summary"><h2>Apostas recentes</h2><p id="recentText">Suas marcações aparecerão aqui conforme você preencher o volante.</p><div class="total">Total da aposta <strong id="total">R$ 0,00</strong></div><div class="total" style="font-size:11px;font-weight:normal">Valor oficial: <b id="official">R$ 0,00</b><br>Adicional do grupo: <b>R$ 0,50</b></div><button class="btn" id="payBtn" style="width:100%">Conferir no site da CAIXA ↗</button><div class="help">O adicional fixo de R$ 0,50 é somado ao preço oficial apenas nesta simulação do grupo.</div></aside></div>
 </main>
 <script>
-const fallback=[['Atlético Madrid/ESP','Barcelona/ESP'],['Brighton/ING','Brentford/ING'],['Crystal Palace/ING','Liverpool/ING'],['Sunderland/ING','Chelsea/ING'],['Genoa/ITA','Milan/ITA'],['Monza/ITA','Atalanta Bergamas/ITA'],['Real Sociedad/ESP','Rayo Vallecano/ESP'],['Manchester United/ING','Aston Villa/ING'],['Vasco da Gama/RJ','Palmeiras/SP'],['Inter de Milão/ITA','Como/ITA'],['Brestois/FRA','Lyon/FRA'],['Ceará/CE','América/MG'],['Goiás/GO','Ponte Preta/SP'],['Fiorentina/ITA','Juventus/ITA']];
+const fallback=[
+  ['Singapura', 'Brasil'],
+  ['Gibraltar', 'Malta/MLT'],
+  ['Alemanha', 'Holanda'],
+  ['Grécia', 'Sérvia/SER'],
+  ['Macedônia do Norte', 'Eslovênia'],
+  ['Suíça', 'Escócia/SCT'],
+  ['Dinamarca', 'Noruega'],
+  ['País de Gales', 'Portugal'],
+  ['Bósnia Herzegovina', 'Romênia'],
+  ['Hungria', 'Irlanda do Norte'],
+  ['Israel', 'Áustria'],
+  ['Polônia', 'Suécia'],
+  ['Ucrânia', 'Geórgia'],
+  ['Quênia', 'África do Sul']
+];
 let matches=fallback.map(x=>({home:x[0],away:x[1]})), picks=Array.from({length:14},()=>[]);
 const $=id=>document.getElementById(id);const fmt=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 function crest(name){return name.replace(/[^A-Za-zÀ-ÿ]/g,'').slice(0,3).toUpperCase()||'FC'}
@@ -39,3 +59,5 @@ $('shareBtn').onclick=()=>{
 $('payBtn').onclick=()=>window.open('https://www.loteriasonline.caixa.gov.br/silce-web/#/loteca','_blank','noopener');
 render();
 </script></body></html>
+
+```
